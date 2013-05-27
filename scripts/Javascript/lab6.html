@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Lab 6</title>
+		<script src="memorygame.js"></script>
+	</head>
+
+	<body onload="newGame();">
+		
+				<form name="f">
+					<input type="button" value="New Game" onclick ="newGame();">
+					&nbsp;&nbsp;&nbsp;&nbsp;<br />
+					Current Player:
+					<input type="text" name="player" size="1">
+					&nbsp;&nbsp;&nbsp;&nbsp;<br />
+					Player 1's score:
+					<input type="text" name="score1" size="2">
+					&nbsp;&nbsp;&nbsp;&nbsp;<br />
+					Player 2's score:
+					<input type="text" name="score2" size="2">
+					&nbsp;&nbsp;&nbsp;&nbsp;<br />
+					Player 3's score:
+					<input type="text" name="score3" size="2">
+				</form>
+
+	<div id = 'cards'> </div>
+	</body>
+
+<script>
+	table();
+</script>
+</html>

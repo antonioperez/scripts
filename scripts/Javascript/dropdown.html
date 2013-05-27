@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<title>i.Learn Homepage</title>
+
+		<meta name="keywords" content="Some keywords here"/>
+		<meta name="description" content="Description"/>
+		<meta name="author" content=""/>
+
+		<link href="http://www.fresnostate.edu/omniresources/css/CSUF_styles.css" rel="stylesheet" type="text/css"/>
+		<link href="//www.fresnostate.edu/omniresources/css/print.css" rel="stylesheet" type="text/css" media="print" />
+
+		<!--[if IE 7]>
+		<link rel="stylesheet" href="//www.fresnostate.edu/omniresources/css/ie7.css" type="text/css" />
+		<![endif]-->
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" type="text/javascript"></script>
+		<script type="text/javascript" src="//www.fresnostate.edu/omniresources/js/linkactive.js"></script>
+		<script type="text/javascript" src="//www.fresnostate.edu/omniresources/js/primarynav.js"></script>
+
+		<style type="text/css">
+			#wrapper.onecol {
+				background-image: none;
+				background-color: white;
+			}
+			#content.onecol {
+				margin: 0;
+			}
+
+			/* common for sub and parent nav */
+
+			/*
+			 LEVEL ONE
+			 */
+
+			ul.pri_nav {
+				padding: 0;
+				border-bottom: 1px solid #dedede;
+				border-left: 1px solid #dedede;
+				border-right: 1px solid #dedede;
+				margin: 0 auto;
+				background: #fff url(//www.fresnostate.edu/omniresources/images/primary_nav_bg.gif) repeat-x;
+			}
+			ul.pri_nav  li {
+				margin: 0;
+				padding: 0;
+				float: left;
+				/*width:159px;*/
+				text-align: center;
+				border-right: white 3px solid;
+				text-transform: uppercase;
+				background: #e5e5e5;
+			}
+
+			ul.pri_nav  a:hover {
+				position: static;
+			}
+			ul.pri_nav  a:active {
+				color: #ffa500;
+			}
+			ul.pri_nav  li a                   a {
+				display: block;
+				padding: 9px 13px 5px 13px;
+				color: #333;
+				text-decoration: none;
+				font-size: .9em;
+				background: #fff url(//www.fresnostate.edu/omniresources/images/primary_nav_bg.gif) repeat-x;
+			}
+			ul.pri_nav  li:last-child a {
+				border-right: none;
+			}/* Doesn't work in IE */
+			ul.pri_nav  li.hover, ul.pri_nav  li:hover {
+				background: #fff;
+				position: relative;
+			}
+			ul.pri_nav  li.hover a {
+				color: black;
+			}
+
+			/*
+			 LEVEL TWO
+			 */
+			ul.pri_nav  ul {
+				width: 220px;
+				visibility: hidden;
+				position: absolute;
+				top: 100%;
+				left: 0;
+			}
+			ul.pri_nav  ul li {
+				font-weight: normal;
+				background: #f6f6f6;
+				color: #000;
+				border-bottom: 1px solid #ccc;
+				float: none;
+			}
+
+			/* IE 6 & 7 Needs Inline Block */
+			ul.pri_nav  ul li a {
+				border-right: none;
+				width: 100%;
+				display: inline-block;
+			}
+
+			/*
+			 LEVEL THREE
+			 */
+			ul.pri_nav  ul ul {
+				left: 100%;
+				top: 0;
+			}
+			ul.pri_nav  li:hover > ul {
+				visibility: visible;
+			}
+		</style>
+	</head>
+
+
+		<ul class="pri_nav" id="test">
+			
+		
+		</ul>
+		
+		
+
+
+	<script>
+	$.getJSON("json_data.json", function(data) {
+		  var items = [];
+ 			 $.each(data, function(d) {
+ 			 	items.push({'id':data[d][3], 'flag': false});
+ 			 	if (data[d][3]==0){
+    				$('#test').append("<li > <a href=" + data[d][2] + ">"+ data[d][1]+"</a><ul id ="+ data[d][0]+ "><u/></li> ");
+    				}
+    			
+    	     	for (var i=0; i<items.length; i++){
+    				 if (data[d][3]==items[i].id){
+    				 	if (items[i].flag == false){
+
+    						$('#'+items[i].id).append("<li > <a href=" + data[d][2] + ">"+ data[d][1]+"</a> <ul id ="+ data[d][0]+ "><u/></li> ");
+    						items[i].flag = true;
+    						}		
+    					}
+    				}
+    			
+ 	 });
+		$(function() {
+
+			$("ul.pri_nav li").hover(function() {
+
+				$(this).addClass("hover");
+				$('ul:first', this).css('visibility', 'visible');
+
+			}, function() {
+
+				$(this).removeClass("hover");
+				$('ul:first', this).css('visibility', 'hidden');
+
+			});
+
+
+		});
+	});
+
+	</script>
+
+	</body>
+</html>
