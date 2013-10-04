@@ -36,20 +36,24 @@ teams_global = [
         'Dolphins' ,   'Colts' ,         
             ]
 
-team_data = []
-for m in matches.split():
-	m = m.lower().capitalize()
-	if m in teams_global:
-		team_data.append(m)
+def parse_matchups(matches):
+    team_data = []
+    for m in matches.split():
+        m = m.lower().capitalize()
+        if m in teams_global:
+            if m == 'Buccaneers':
+                team_data.append('Bucs')
+            else:
+                team_data.append(m)
+    week_matches = {}
+    for i in xrange(0,len(team_data),2):
+        week_matches[team_data[i]] = team_data[i+1]
+    return week_matches
 
 
-week_matches = {}
-for i in xrange(0,len(team_data),2):
-	week_matches[team_data[i]] = team_data[i+1]
-
-
-print "Home : Away"
-for k,v in week_matches.items():
-	print k+':'+v
+print parse_matchups(matches)
+#print "Home : Away"
+#for k,v in week_matches.items():
+#	print k+':'+v
 
 
