@@ -50,6 +50,58 @@ class StringBuffer(object):
 				new_string[i] = replacement
 		return "".join(new_string)
 
+	def compress(self, string):
+		"""	
+		1.5 Implement a method to perform basic string compression using the counts of repeated characters. 
+		For example, the string aabcccccaaa would become a2blc5a3. If the "compressed" string would not become 
+		smaller than the orig- inal string, your method should return the original string.
+		"""
+		copy = []
+		last = ""
+		count = 0
+		length = len(string)
+		for index in range(0, length):
+			if string[index] != last and count:
+				copy.append(last)
+				copy.append(str(count))
+				count = 0
+			last = string[index]
+			count += 1
+		copy.append(string[length-1])
+		copy.append(str(count))
+		return "".join(copy)
+
+	def rotateImg(self):
+		"""1.6Given an image represented by an NxN matrix, where each pixel in the image is 4 bytes, 
+			write a method to rotate the image by 90 degrees. Can you do this in place?"""
+
+	def CheckMatrix(self, matrix):
+		"""1.7 Write an algorithm such that if an element in an MxN matrix is 0, its entire row and column are set to 0.
+		"""
+		cols = []
+		rows = []
+		row = col = 0
+		for r in matrix:
+			for num in r:
+				if num == 0:
+					rows.append(row)
+					cols.append(col)
+					row = 0
+				col += 1
+			col = 0
+			row += 1
+
+		for row in rows:
+			for i in range(0, len(matrix[row])):
+				matrix[row][i] = 0
+				
+		for col in cols:
+			for i in range(0, len(matrix)):
+				matrix[i][col] = 0
+		return matrix
+
+
+
 
 
 sb = StringBuffer()
@@ -58,3 +110,7 @@ print sb.isPerm("test", "ewtt")
 print sb.isPerm("test", "estt")
 print sb.replace("Mr John Smith", " ", "%20")
 print sb.pyReplace("Mr John Smith", " ", "%20")
+print sb.compress("aabcccccaaa")
+print sb.CheckMatrix([[0, 5, 1, 4, 5],
+					  [3, 7, 2, 9, 40], 
+					  [1, 2, 1, 4, 0],])
