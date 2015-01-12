@@ -111,9 +111,6 @@ class StringBuffer(object):
 			return True
 		return False
 
-
-
-
 sb = StringBuffer()
 print sb.uniqueChar("Implement an algorithm to determine")
 print sb.isPerm("test", "ewtt")
@@ -123,5 +120,5 @@ print sb.pyReplace("Mr John Smith", " ", "%20")
 print sb.compress("aabcccccaaa")
 print sb.CheckMatrix([[0, 5, 1, 4, 5],
 					  [3, 7, 2, 9, 40], 
-					  [1, 2, 1, 4, 0],])
+					  [1, 2, 1, 4, 0]])
 print sb.isSubstring("waterbottle", "erbottlewat")
