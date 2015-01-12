@@ -53,20 +53,48 @@ Node *RemoveDup(Node *list){
 
 }
 
+/* 2.2 Implement an algorithm to find the kth to last element of a singly linked list.*/
+int kthElement(Node *list, int k){
+   int index = 0, sizeList, pos, val=-1;
+   Node *curr = list;
+   while(curr) {
+      sizeList++;
+      curr = curr->next;
+   }
+   pos = sizeList - k;
+   if (pos < 0){
+      return val;
+   }
+   curr = list;
+   while(curr) {
+      if (index == pos){
+         val = curr->val;
+      }
+      curr = curr->next;
+      index++;
+   }
+   return val;
+
+}
+
 int main() {
-   Node *curr, *head;
+   Node *curr, *head, *temp;
    int i;
 
    head = NULL;
    for(i=0;i<=10;++i) {
       curr = (Node *)malloc(sizeof(Node));
-      curr->val = rand() % 5;
+      curr->val = rand() % 10;
       curr->next = head;
       head = curr;
    }
+   temp = curr;
    printList(curr);
    curr = RemoveDup(curr);
    printList(curr);
+   printf("%d\n", kthElement(curr,5));
+
+
 
    return 0;
 }
