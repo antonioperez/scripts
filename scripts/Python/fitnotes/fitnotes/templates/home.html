@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block content %}
+<nav>
+				<div class="navbar navbar-fixed-top navbar-inverse">
+				      <div class="navbar-inner">
+				        <div class="container">
+				        	
+				          <a class="brand" href="/">FitNotes</a>
+				          
+									<div class="nav pull-right">
+							           <div class="btn-group">
+							           	
+									  <button class="btn btn btn-inverse">{% if user %}{{username}}{% else %}<a href="/login">Login</a>{% endif %}</button>
+									  <button class="btn btn-inverse dropdown-toggle" data-toggle="dropdown">
+									    <span class="caret"></span>
+									  </button>
+										<ul class="dropdown-menu"> {% if user %}
+							            	    	
+								      <li><a href="/profile">Profile</a></li>
+								      <li class="divider"></li>
+								          <li><a href="/logout">Logout</a></li>
+								    {% else %}
+								    
+							              <li><a href="/login">Login</a></li>
+							              <li class="divider"></li>
+							              <li><a href="/signup">Signup</a></li>
+							              
+							             {% endif %}
+							            </ul>
+											</div>
+							          </div>
+							          
+				          <div class="nav-collapse collapse">
+				            <ul class="nav">
+				            	
+				            	<li class="divider-vertical"></li>
+				              <li class="active">
+				                <a href="/">Home</a>
+				              </li>
+				              <li >
+				                <a href="/fitlogs">FitLogs</a>
+				              </li>
+				              <li >
+				                <a href="/fitforums">FitForums</a>
+				              </li>
+				            				              
+								</ul>
+				            
+				          </div>
+				        </div>
+				      </div>
+				    </div>
+				</nav>
+				<br /><br /><br />
+				
+				
+				
+				
+				
+				<div class="container">
+					
+						{% block user_handler %}
+
+           				 {% endblock %}
+				<div class="alert alert-info">
+					<h3 class="alert-heading">Welcome to FitNotes</h3>
+									 <br />
+						FitNotes is a simple fitness jounal. Log your workouts and keep track of your progress. You will also be able to interact with other members of FitNotes! Talk about the latest workout plans or share diets. 
+						
+						The site is in the early stages of development. Expect heavy redesign work.  
+									  
+						</div>
+						
+ 
+						</div>
+				
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends "fitlogs.html" %}
+
+{% block view %}
+
+<ul  class="nav nav-tabs">
+		<li><a href="/fitlogs/profile">Profile </a></li>
+	<li class="active">
+		<a href="/fitlogs/" >Journal</a>
+	</li>
+	<li>
+		<a href="/fitlogs/logit"> Logit</a>
+	</li>
+	<li>
+		<a href="/fitlogs/progress"> Progress</a>
+	</li>
+
+</ul>
+<div class="accordion" id="accordion2">
+	{% if logs %}
+	{% for log,ex in logs.items %}
+
+	<div class="accordion-group">
+		<div class="accordion-heading">
+			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#{{ forloop.counter }}" > Date: {{log.log_date}} </a>
+		</div>
+		<div id="{{ forloop.counter }}" class="accordion-body collapse ">
+			<div class="accordion-inner">
+				<div class="span12">
+					<table class="table table-hover table-striped table-bordered table-condensed">
+						<thead>
+
+							<tr>
+								<th colspan="2">Type of Workout: {{log.type}}</th>
+								<th>Current Weight: {{log.weight}} </th>
+							</tr>
+							<tr>
+
+								<th>Workout</th>
+								<th>Duration</th>
+								<th>Reps</th>
+								<th>Resistance</th>
+
+							</tr>
+						</thead>
+
+						<tbody>
+							{% for workout in ex %}
+							<tr>
+
+								<td>{{workout.workout}}</td>
+								<td>{{workout.duration}}</td>
+								<td>{{workout.reps}}</td>
+								<td> {{workout.resistance}}</td>
+
+							</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	{% endfor %}
+
+	{% else %}
+	<p>
+		No logs found
+	</p>
+	{% endif %}
+</div>
+
+{% endblock %} 

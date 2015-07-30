@@ -1,0 +1,24 @@
+{% extends "home.html" %}
+
+{% block user_handler %}
+
+  {% if form.errors %}
+  
+    <span class="error label label-important">Sorry, that's not a valid username or password</span>
+  {% endif %}
+  								              	
+  <form class="well form-inline" action="" method="post">
+  	{% csrf_token %} 
+    <label for="username">Username:</label>
+    <input class="input-small" type="text" name="username" value="" id="username">
+    <label for="password">Password:</label>
+    <input class="input-small" type="password" name="password" value="" id="password">
+  <label class="checkbox">
+    <input type="checkbox"> Remember me
+  </label>
+    <input class="btn" type="submit" value="login" />
+    <input type="hidden" name="next" value="{{ next|escape }}" />
+  </form>
+
+{% endblock %}
+

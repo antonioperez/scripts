@@ -1,0 +1,32 @@
+{% extends "fitlogs.html" %}
+
+{% block view %}
+
+<ul  class="nav nav-tabs">
+		<li class="active">
+		<a href="/fitlogs/profile">Profile </a>
+	</li>
+	<li>
+		<a href="/fitlogs/" >Journal</a>
+	</li>
+	<li>
+		<a href="/fitlogs/logit"> Logit</a>
+	</li>
+	<li>
+		<a href="/fitlogs/progress"> Progress</a>
+	</li>
+
+</ul>
+
+
+
+<form method="post">
+		{% csrf_token %}
+	{{user_profile_form}} <br />
+	
+	Body Mass Index: {{user_profile.bmi}} <br />
+	<input type="submit" name="submit" class="btn btn-primary"/>
+	
+</form>
+
+{% endblock %} 

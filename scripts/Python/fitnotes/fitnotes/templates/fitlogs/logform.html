@@ -1,0 +1,126 @@
+{% extends "fitlogs.html" %}
+
+{% block view %}
+<ul  class="nav nav-tabs">
+		<li><a href="/fitlogs/profile">Profile </a></li>
+	<li >
+		<a href="/fitlogs/" >Journal</a>
+	</li>
+	<li class="active">
+		<a href="/fitlogs/logit"> Logit</a>
+	</li>
+	<li>
+		<a href="/fitlogs/progress"> Progress</a>
+	</li>
+
+</ul>
+<form class="form-horizontal" action="" method="post">
+	{% csrf_token %}
+	<fieldset>
+
+		{{ formset.management_form }}
+		<div class="well">
+			<div class="control-group">
+				<label class="control-label" for="id_log_date">Date</label>
+				<div class="controls">
+
+					{{form.log_date}}
+
+					{% for error in form.log_date.errors %}
+					<span class="label label-important">{{ error|escape }}</span>
+					{% endfor %}
+					<p class="help-block">
+						Enter date of your workout.
+						<br>
+						Preferred format: YYYY-MM-DD | 2012-08-18
+					</p>
+				</div>
+			</div>
+
+			<div class="control-group">
+				<label class="control-label" for="id_type">Type of Day</label>
+				<div class="controls">
+
+					{{form.type}}
+					{% for error in form.type.errors %}
+					<span class="label label-important">{{ error|escape }}</span>
+					{% endfor %}
+					<p class="help-block">
+						Chest Day? Leg Day? Cardio Day?
+					</p>
+				</div>
+			</div>
+
+			<div class="control-group">
+				<label class="control-label" for="id_weight">Today's Weight</label>
+				<div class="controls">
+
+					{{form.weight}}
+					{% for error in form.weight.errors %}
+					<span class="label label-important">{{ error|escape }}</span>
+					{% endfor %}
+					<p class="help-block">
+						Enter your current weight.
+					</p>
+				</div>
+			</div>
+		</div>
+		{% for form in formset %}
+
+		<div class="control-group well">
+
+			<label class="control-label" for="id_workout">Workout: </label>
+			<input class="btn btn-primary btn-small pull-right" title='Del' type='submit' name='del_workout' value='Delete' />
+			<div class="controls">
+
+				{{form.workout}}
+				{% for error in form.workout.errors %}
+				<span class="label label-important">{{ error|escape }}</span>
+				{% endfor %}
+				<p class="help-block">
+					If your specific workout is not found, enter as you desire.
+				</p>
+				<br/>
+
+			</div>
+
+			<label class="control-label" for="id_duration">Duration: </label>
+			<div class="controls">
+
+				{{form.duration}}
+				{% for error in form.duration.errors %}
+				<span class="label label-important">{{ error|escape }}</span>
+				{% endfor %}
+			</div>
+	<br />
+			<label class="control-label" for="id_reps">Reps: </label>
+			<div class="controls">
+
+				{{form.reps}}
+				{% for error in form.reps.errors %}
+				<span class="label label-important">{{ error|escape }}</span>
+				{% endfor %}
+			</div>
+	<br />
+			<label class="control-label" for="id_resistance">Resistance: </label>
+			<div class="controls">
+
+				{{form.resistance}}
+				{% for error in form.resistance.errors %}
+				<span class="label label-important">{{ error|escape }}</span>
+				{% endfor %}
+			</div>
+
+		</div>
+		{% endfor %}
+
+	</fieldset>
+
+	<div class="modal-footer">
+		<input class="btn btn-primary pull-left" title='Add' type='submit' name='add_workout' value='Add' />
+		<input class="btn btn-primary" type="submit" name='submit' value="Submit">
+	</div>
+</form>
+
+{% endblock %}
+

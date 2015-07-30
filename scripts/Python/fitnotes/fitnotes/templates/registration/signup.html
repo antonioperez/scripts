@@ -1,0 +1,86 @@
+{% extends "home.html" %}
+
+{% block user_handler %}
+    <h2>Signup</h2>    
+    
+    <form class="form-horizontal" action="" method="post">
+    	{% csrf_token %}
+    	<fieldset class="">
+    	
+    	
+												<div class="control-group">
+								            <label class="control-label" for="input01">Username:</label>
+								            <div class="controls">
+								              <input type="text" class="input-xlarge" name="username"id="input01" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$">
+								              {% for error in form.username.errors %}
+														        <span class="label label-important">{{ error|escape }}</span>
+														    {% endfor %}
+								            </div>
+								          </div>
+								          
+								          <div class="control-group">
+								            <label class="control-label" for="input02">Email:</label>
+								            <div class="controls">
+								              <input type="text" class="input-xlarge" name="email"id="input02" pattern="">
+								              
+													        {% for error in form.email.errors %}
+														        <span class="label label-important">{{ error|escape }}</span>
+														    {% endfor %}			              
+								            </div>
+								            
+								          </div>
+								          
+								          <div class="control-group">
+								            <label class="control-label" for="input03">Password:</label>
+								            <div class="controls">
+								              <input type="password" class="input-xlarge" name="password1"id="input03" >
+								              			{% for error in form.password1.errors %}
+														        <span class="label label-important">{{ error|escape }}</span>
+														    {% endfor %}
+								            </div>
+								          </div>
+								          
+								          <div class="control-group">
+								            <label class="control-label" for="input04">Verify:</label>
+								            <div class="controls">
+								           <input type="password" class="input-xlarge" name="password2"id="input04" >
+								            </div>
+								          </div>
+								      								          <div class="control-group">
+								            <label class="control-label" for="input03">Current Weight:</label>
+								            <div class="controls">
+								              {{user_profile_form.curr_weight}}
+								              			{% for error in user_profile_form.curr_weight.errors %}
+														        <span class="label label-important">{{ error|escape }}</span>
+														    {% endfor %}
+								            </div>
+								          </div>
+								          
+								          <div class="control-group">
+								            <label class="control-label" for="input04">Feet:</label>
+								            <div class="controls">
+								          {{user_profile_form.feet}}
+								          {% for error in user_profile_form.feet.errors %}
+														        <span class="label label-important">{{ error|escape }}</span>
+														    {% endfor %}
+								            </div>
+								          </div>
+								       								          <div class="control-group">
+								            <label class="control-label" for="input04">Inches:</label>
+								            <div class="controls">
+								          {{user_profile_form.inches}}
+								          {% for error in user_profile_form.inches.errors %}
+														        <span class="label label-important">{{ error|escape }}</span>
+														    {% endfor %}
+								            </div>
+								          </div>
+										<div class="control-group">
+								            <div class="controls">
+								              <input class="btn btn-primary" type="submit" value="Submit">
+								            </div>
+								          </div>
+        								
+        </fieldset>
+    </form>
+    
+{% endblock %}
