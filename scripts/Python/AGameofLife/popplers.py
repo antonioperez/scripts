@@ -3,7 +3,6 @@
 """
 Antonio D Perez
 THE GAME OF LIFE
-ID: 106333169
 
 INSTALL LATEST PYGAME! 
 http://www.pygame.org/download.shtml
