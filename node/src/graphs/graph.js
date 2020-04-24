@@ -35,14 +35,13 @@ class Graph {
     this.nodes = nodes;
   }
   
-  addNode(key, node) {
-    this.nodes[key] = node;
+  addNode(node) {
+    this.nodes.push(node);
   }
 
   getNodes(){
     return this.nodes;
   }
-
 }
 
 // Given a graph and a target number T, find T exists in the graph.
