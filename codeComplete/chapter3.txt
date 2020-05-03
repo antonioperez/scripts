@@ -1,0 +1,34 @@
+What points did you agree/disagree with?
+  * Write Programs for People First, Computers Second.
+    * Keep it stupid simple. Architecture, functions, everything, but also keep the business in mind. Reduce cognative load.
+    * It's easy to overengineer a solution. Be as practical as possible.
+  * Watch for Falling Rocks: as programming merges art and science, good judgement is vital, including heeding warning signs.
+    * Build good enough software 
+  * The building metaphor
+    * Legos can be anything. You reassign bricks when requirements change. More flexible than a house.
+    * Iterate as must as possible.
+  * Identify as much risk as possible by project planning.
+    * There will be some changes during development, but it's better to be prepared.
+    * Changes later are much more costly. However, planning for the unknown is a useful skill.
+
+What areas do we need to improve on?
+  * What exactly is our process? FIFO.
+  * Planning takes time. We need to increase our time estimates if we want to plan more.
+  * It's easy to get coding right away, but there times where requirements change a lot. Would those cases be caught earlier with a discussion?
+  * We need to share knowledge, not just the team, but with all people in the company. It's not just plug and play.
+
+How important is it that we follow suggested practices? What is an appropriate timeline to implement new ideas?
+  * We can plan better, but it can only happen incrementally. 
+  * We need to pad estimates and fit the good practices in.
+
+Do you have examples of successes/failures regarding these ideas at Pressed or previous employers?
+  * Consulting
+    * Success
+      * JRenee
+        * Solid planning, architecture changed a lot. Paid back debt.
+        * PHP framework.
+    * Do as the client/owner says at all costs. No room for planning for architecture. A messy codebase.
+      * AutoSoft, Old Pressed Site
+        * Poor Planning, hard to maintain, had to eat the costs and rewrite.
+      * Thriftly
+        * Good Product, poor system planning, over complicated pricing structure.
