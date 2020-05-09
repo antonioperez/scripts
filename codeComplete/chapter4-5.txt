@@ -1,0 +1,35 @@
+Chapter 4
+Choice of programming language
+* program into the language, not in it.
+* Research linting/code styles before beginning coding
+* Don't limit yourself in one programming language
+* learn the ecosystem and the best practices for the language
+  * Class base approaches, promise chains.
+
+Chapter 5
+Challenges:
+* Handling complexity with trade offs in a timely manner.
+  * Flexible design
+  * Impossible to keep the entire system in your head
+  * Making a change affects others.
+  * Giving a consistent path for the code.
+  * Adding interfaces for the important or complex bits.
+  * Think in subsystems!
+* YAGNI
+* Identify Risk
+  *"It's easy, so what will we hurt by putting it in?
+  * Design Restrictions
+    * What does this class need to hide?
+* Levels of Design
+  1. Software System
+  2. Division into subsystems or packages
+    * Business rules, user interface, database access blocks.
+    * Relationships between systems are where the difficulties are. Worry about circular dependencies.
+  3. Division into classes
+    * Actual classes in code for everything.
+    * Real world objects into classes.
+    * How do objects interact?
+  4. Division into Routines
+    * Method definitions in the classes
+  5. Interal Routine Design
+    * Method implementation of the classes.
