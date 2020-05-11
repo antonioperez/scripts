@@ -27,5 +27,5 @@ function buildTreeHelper(numbers, start, end){
 }
 
 function isOutOfBounds(numbers, index){
-  return index >= 0 && index < numbers.length;
+  return index < 0 || index >= numbers.length;
 } 
