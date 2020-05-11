@@ -8,7 +8,7 @@ class TreeNode {
 }
 
 function isBST(node) {
-  return !isBSTHelper(node) === false;
+  return isBSTHelper(node) === false;
 }
 
 function isBSTHelper(node) {
