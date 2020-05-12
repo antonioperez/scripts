@@ -6,3 +6,33 @@ Step 3: What to STORE
 Step 4: HIGH-LEVEL DESIGN
   For most questions, you should be able to modify the Anatomy of a Web Backend diagram to fit the system's needs. You will see examples in our System Designs.
 Step 5: DETAILED DESIGN according to what the interviewer wants to discuss.
+
+
+PERFORMANCE IMPROVEMENTS
+Geolocation: 
+  In most System Design interviews, you should bring up geo-location as a performance improvement technique. 
+  We can place servers in different locations around the world, and even in different parts of the country. 
+  We can use CDN to serve static content like images and videos. This reduces latency for users near those locations.
+
+Caching: 
+  You can cache a lot of things on an e-commerce website. 
+  In our current model, you can cache the list of products, popular products' details, and even the entire homepage since it is currently the same for all users.
+
+In Memory Databases: 
+  In our current design, there is no real need to use an in-memory DB. 
+  Typically in-memory databases are useful for data that needs quick updates or processing. 
+  It's fast because everything happens in the RAM.
+
+  Here are some features where you can use it: 
+    If we are live-updating a package's location on a map, you want the location to be updated and retrieved quickly. Or, let's say you want very fast queries over a dataset. 
+    For example, if you are implementing search suggestions, where a user gets instant suggestions for any string they type, you can consider using an in-memory DB to speed up the queries.
+
+Offload Tasks to Job Queue: 
+  Tasks that don't need immediate processing should be done offline via a job queue. 
+  For example, if the user adds a product to his/her Cart, the backend can queue a job and quickly return a success message. 
+  The actual processing is pretty trivial and not prone to errors, so it can be done in a job queue. Keep in mind that we need to make sure that the job queue is not backlogged because we don't want the cart to take too long to update. 
+  It improves user experience.
+
+  In the odd case where the job runs into an error, we can retry the operation. 
+  In the rare case that this predictable operation fails again, we can find a way to communicate it to the user, such as a notification. 
+  In our current design, we will ignore that case.

@@ -31,3 +31,36 @@ function preOrderPrint(node){
 
   return;
 }
+
+class TreeNode {
+  constructor(data, isVisited, left, right) {
+    this.data = data;
+    this.isVisited = isVisited;
+    this.left = left;
+    this.right = right;
+  }
+}
+
+function printInOrderIter(treeNode){
+  const stack = [];
+  stack.push(treeNode);
+
+  while(stack.length > 0){
+    const node = stack.pop();
+
+    if(node.isVisited){
+      console.log(node.data);
+    } else {
+      node.isVisited = true;
+      if(node.left){
+        stack.push(node.left);
+      }
+
+      stack.push(node);
+
+      if(node.right){
+        stack.push(node.right);
+      }
+    }
+  }
+}
