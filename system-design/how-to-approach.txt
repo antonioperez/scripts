@@ -1,0 +1,8 @@
+Step 1: Define your FEATURES (2-3 Core features)
+Step 2: Narrow down USE CASES
+Step 2.5: Clarify that you are designing with scale in mind and any other assumptions.
+Step 3: What to STORE
+  Listing what to Store helps you think about the problem and how you will structure your system. You need not define a database model here, just entities you will need to store. Examples are in this weeks sections.
+Step 4: HIGH-LEVEL DESIGN
+  For most questions, you should be able to modify the Anatomy of a Web Backend diagram to fit the system's needs. You will see examples in our System Designs.
+Step 5: DETAILED DESIGN according to what the interviewer wants to discuss.
