@@ -52,14 +52,15 @@ function printInOrderIter(treeNode){
       console.log(node.data);
     } else {
       node.isVisited = true;
-      if(node.left){
-        stack.push(node.left);
+      if(node.right){
+        stack.push(node.right);
       }
 
       stack.push(node);
 
-      if(node.right){
-        stack.push(node.right);
+      // we push left after right so that it isaccessed first
+      if(node.left){
+        stack.push(node.left);
       }
     }
   }
