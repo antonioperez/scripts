@@ -33,3 +33,16 @@ Challenges:
     * Method definitions in the classes
   5. Interal Routine Design
     * Method implementation of the classes.
+* Loose Coupling: Classes and Routines should reduce complexity
+  * Size
+  * Visibility
+    * Make it obvious. Programming is like marketing.
+  * Flexibility
+
+  Types
+    * Simple Data Parameter Coupling: function(simpleData, simpleData)
+    * Simple Object Coupling: 
+    * Object Parameter Coupling: Passing objects
+    * Semantic Coupling
+      * Avoid loose dependencies
+    
