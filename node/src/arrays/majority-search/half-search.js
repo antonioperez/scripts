@@ -4,7 +4,6 @@
 // A​​=>​​[4,2,3,4,4,5,4,4,5,4,4],​​Result ​​is ​4
 // A​​=>​​[2,4,6,6,3,6,7,9,5,3], ​​There​​ is ​​no​​ result ​​because ​​there​​ is ​no ​​majority
 
-
 function majorityFind(numbers){
   if(!numbers || numbers.length < 1){
     return null;

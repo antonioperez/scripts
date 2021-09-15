@@ -38,8 +38,10 @@ const searchBSTInter = function(numbers, target) {
         console.log(mid, numbers[mid]);
         if(numbers[mid] === target){
             return mid;
+            
         } else if(numbers[mid] < target){
             start = mid + 1;
+
         } else if (numbers[mid] > target) {
             end = mid - 1;
         }

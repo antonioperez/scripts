@@ -1,32 +1,44 @@
+// Given a set of possible point redemptions, print out the number of ways you can redeem them?
+// ex) { 180, 150, 140, 70 } and the user has 500 points. 
+// answer: 5 ways to redeem
+// detailed answer:
+//    [ 180, 180, 140 ]
+//    [ 180, 180, 70, 70 ]
+//    [ 150, 140, 140, 70 ]
+//    [ 150, 140, 70, 70, 70 ]
+//    [ 150, 70, 70, 70, 70, 70 ]
 
-//Coin Change - Print Count: 
-// Given a set of coin denominations, 
-// print out the number of ways you can make a target amount. 
-// You can use as many coins of each denomination as you like
-
-// For example: 
-// If coins are [1,2,5] and the target is 5, 
-// the different ways are: 
-// [1,1,1,1,1]
-// [1,1,1,2]
-// [1,2,2]
-// [5]
-//The Output will be 4.
-
-function getCoinCombinations(targetAmount, coins){
-  const coinAmounts = new Array(targetAmount + 1).fill(0);
-  coinAmounts[0] = 1;
+function getPossiblePointRedemptionCount(userPointsAmount, possiblePointRedemptions){
+  const possibleRedeemableCounts = new Array(userPointsAmount + 1).fill(0);
+  possibleRedeemableCounts[0] = 1;
   
-  for (const coin of coins) {
-    for (let index = coin; index <= targetAmount; index++) {
-      coinAmounts[index] += coinAmounts[index - coin];
+  for (const possiblePointRedemption of possiblePointRedemptions) {
+    for (let possibleIndex = possiblePointRedemption; possibleIndex <= userPointsAmount; possibleIndex++) {
+      possibleRedeemableCounts[possibleIndex] += possibleRedeemableCounts[possibleIndex - possiblePointRedemption];
     }
-
-    console.log(coinAmounts);
   }
 
-  return coinAmounts[targetAmount];
+  return possibleRedeemableCounts.reduce((accumulator, redeemableCount, currentIndex) => {
+    if (currentIndex === 0) {
+      // don't count no choice as a possible redemption choice.
+      return 0;
+    }
+
+    return accumulator + redeemableCount;
+  }, 0);
 }
 
+// nothing also counts. Lets ignore.
 
-console.log(getCoinCombinations(5, [2,5,1]));
+// 1 1 1 1 1
+// 1 1 1 1
+// 1 1 1 
+// 1 1 
+// 1
+// 1 1 3
+// 1 3
+// 3 
+// 5  
+console.log(getPossiblePointRedemptionCount(5, [1, 3, 5]));
+
+//ANSWER: 9 ways. 

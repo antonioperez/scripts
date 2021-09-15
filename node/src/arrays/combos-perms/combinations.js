@@ -7,11 +7,10 @@ function printCombos(numbers, comboLength) {
 }
 
 function printCombosHelper(numbers, startIndex, buffer, bufferIndex) {
-  //subsets
   //console.log(buffer.slice(0, bufferIndex));
   if (buffer.length === bufferIndex) {
     //combos of length
-    //console.log(buffer);
+    console.log(buffer);
     return;
   }
 
@@ -25,7 +24,7 @@ function printCombosHelper(numbers, startIndex, buffer, bufferIndex) {
   }
 }
 
-printCombos([1,2,3], 2)
+printCombos('123', 5)
 
 //print permutations
 function printPermutations(numbers, permLength){
@@ -35,6 +34,7 @@ function printPermutations(numbers, permLength){
 }
 
 function printPermutationHelper(numbers, buffer, bufferIndex, isInBuffer){
+  console.log('value', buffer);
   if(buffer.length === bufferIndex){
     console.log('value', buffer);
     return;
@@ -44,11 +44,33 @@ function printPermutationHelper(numbers, buffer, bufferIndex, isInBuffer){
     if(!isInBuffer[index]){
       buffer[bufferIndex] = numbers[index];
       isInBuffer[index] = true;
-      console.log(numbers, buffer, bufferIndex+1, isInBuffer);
       printPermutationHelper(numbers, buffer, bufferIndex+1, isInBuffer);
       isInBuffer[index] = false;
     }
   }
 }
 
-printPermutations([1,2,3], 2)
+//printPermutations([1,3,5], 5);
+
+
+function getSubstringCombinations(inputString, length) {
+  const results = [];
+  const buffer = new Array(length);
+  getCombinationHelper(inputString, 0, buffer, 0, results);
+  return results;
+}
+
+function getCombinationHelper(inputString, startIndex, buffer, bufferIndex, results) {
+  //if (buffer.length === bufferIndex) {
+      results.push(buffer);
+  //}
+  
+  if(startIndex === inputString.length) {
+      return;
+  }
+  
+  for (let index = startIndex; index < inputString.length; index++) {
+      buffer[bufferIndex] = inputString[index];
+      getCombinationHelper(inputString, index + 1, buffer, bufferIndex + 1, results);
+  }
+}

@@ -26,6 +26,7 @@
         lastIndex -= 1;
         numbers[lastIndex] = numbers[index];
      }
+     
      lastIndex -= 1;
      numbers[lastIndex] = numbers[index];
    }

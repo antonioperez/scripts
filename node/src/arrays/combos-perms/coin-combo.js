@@ -59,4 +59,7 @@ function footballScoresHelper(scores, target, startIndex, buffer, sum) {
   }
 }
 
-footballScoreCombos([3,6,1], 10);
+// footballScoreCombos([3,6,1], 10);
+
+
+console.log(footballScoreCombos([1,3,5], 5));

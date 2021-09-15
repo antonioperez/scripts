@@ -26,7 +26,7 @@ function isBalancedTree(treeNode){
 //Find the Diameter of a Binary Tree. The Diameter is the longest path from any 2 nodes in the tree.
 // returns [height, lonestPathThisSubTree];
 function diameter(treeNode){
-  if(!treeNode) {
+  if (!treeNode) {
     return null;
   }
 

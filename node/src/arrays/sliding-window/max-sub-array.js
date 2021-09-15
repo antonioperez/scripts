@@ -29,7 +29,7 @@ function findSubarrayForTarget(numbers, target) {
   let sum = 0;
   for (let index = 0; index < numbers.length; index++) {
     sum += numbers[index];
-    if(sum === target) {
+    if (sum === target) {
       return [0, index];
     }
 
@@ -68,6 +68,7 @@ function checkSubarraySum(numbers, target){
       }
     }
   }
+  
   return false;
 }
 

@@ -29,10 +29,9 @@ function waysToClimbBtmUp(steps){
   }
 
   return stepsArray[steps];
-
 }
 
-console.log(waysToClimbBtmUp(8))
+console.log(waysToClimbBtmUp(5))
 
 //Top Down Approach usingTabulation
 function waysToClimbTopBottom(steps) {
@@ -47,10 +46,11 @@ function waysToClimbTopBottom(steps) {
     const oneBehind = oneBehindIndex < 0 ? 0 : stepsArray[oneBehindIndex];
     const threeBehind = threeBehindIndex < 0 ? 0 : stepsArray[threeBehindIndex];
     const fiveBehind = fiveBehindIndex < 0 ? 0 : stepsArray[fiveBehindIndex];
+
     stepsArray[index] = oneBehind + threeBehind + fiveBehind;
   }
 
   return stepsArray[steps];
 }
 
-console.log(waysToClimbTopBottom(8))
+console.log(waysToClimbTopBottom(5))

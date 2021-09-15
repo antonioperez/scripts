@@ -74,5 +74,3 @@ function dfsVisit(node, stack) {
   node.setState('visited');
   stack.push(node);
 }
-
-
